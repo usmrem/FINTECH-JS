@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Hangman</title>
+  <meta charset="UTF-8">
+  <title>Hangman</title>
+</head>
 <body>
+
 <script>
-  let outFirstFunction = function () {
-    console.log("Hello World!");
+  let pickRandomWord = function (words) {
+    return words[Math.floor(Math.random() * words.length)];
   };
 
-  outFirstFunction()
+  let randomWords = ["Planet", "Worm", "Flower", "Computer"];
+  pickRandomWord(randomWords);
+  console.log(randomWords);
+
+
 </script>
 
 </body>
