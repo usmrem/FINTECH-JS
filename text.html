@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hangman</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Site</title>
 </head>
+
 <body>
 
+<h1>This is my first React site</h1>
+<p>I learn React and TypeScript</p>
+<button id="Btn">Enter</button>
+
 <script>
-  let pickRandomWord = function (words) {
-    return words[Math.floor(Math.random() * words.length)];
+  let Btn = document.getElementById("Btn");
+
+  Btn.onclick = function () {
+    alert("Hello! React works!");
   };
-
-  let randomWords = ["Planet", "Worm", "Flower", "Computer"];
-  pickRandomWord(randomWords);
-  console.log(randomWords);
-
-
 </script>
 
 </body>
