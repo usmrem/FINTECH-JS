@@ -7,15 +7,36 @@ setInterval(() => {
   i = (i + 1) % frames.length;
 }, 400);
 
-// disable copy
-document.addEventListener("copy", e => e.preventDefault());
+const options = {
+  threshold: 0.2
+};
 
-// disable right click
-document.addEventListener("contextmenu", e => e.preventDefault());
+const sections = document.querySelectorAll("section");
 
-// disable Ctrl+C
-document.addEventListener("keydown", e => {
-  if (e.ctrlKey && e.key.toLowerCase() === "c") {
-    e.preventDefault();
-  }
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      sectionObserver.unobserve(entry.target);
+    }
+  });
+}, options);
+
+sections.forEach(section => {
+  sectionObserver.observe(section);
+});
+
+const cards = document.querySelectorAll(".project-card");
+
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, options);
+
+cards.forEach(card => {
+  cardObserver.observe(card);
 });
